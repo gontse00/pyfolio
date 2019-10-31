@@ -374,11 +374,11 @@ def gen_round_trip_stats(round_trips):
                                           SUMMARY_STATS)
     stats['duration'] = agg_all_long_short(round_trips, 'duration',
                                            DURATION_STATS)
-    stats['returns'] = agg_all_long_short(round_trips, 'returns',
+    stats['returns'] = agg_all_long_short(round_trips, 'rt_returns',
                                           RETURN_STATS)
 
     stats['symbols'] = \
-        round_trips.groupby('symbol')['returns'].agg(RETURN_STATS).T
+        round_trips.groupby('symbol')['rt_returns'].agg(RETURN_STATS).T
 
     return stats
 
